@@ -42,9 +42,14 @@ void reg_test() {
 }
 
 void isa_reg_display() {
-  printf("registers\thex\tdec\n");
-  printf("eax\t 0x%x\t %d\t\n",cpu.gpr[1]._32,cpu.gpr[1]._32);
-
+  printf("eax\t 0x%x\t %d\t\n",cpu.gpr[0]._32,cpu.gpr[0]._32);
+  printf("ecx\t 0x%x\t %d\t\n",cpu.gpr[1]._32,cpu.gpr[1]._32);
+  printf("edx\t 0x%x\t %d\t\n",cpu.gpr[2]._32,cpu.gpr[2]._32);
+  printf("ebx\t 0x%x\t %d\t\n",cpu.gpr[3]._32,cpu.gpr[3]._32);
+  printf("esp\t 0x%x\t %d\t\n",cpu.gpr[4]._32,cpu.gpr[4]._32);
+  printf("ebp\t 0x%x\t %d\t\n",cpu.gpr[5]._32,cpu.gpr[5]._32);
+  printf("esi\t 0x%x\t %d\t\n",cpu.gpr[6]._32,cpu.gpr[6]._32);
+  printf("edi\t 0x%x\t %d\t\n",cpu.gpr[7]._32,cpu.gpr[7]._32);
 }
 
 word_t isa_reg_str2val(const char *s, bool *success) {
