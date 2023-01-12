@@ -50,6 +50,11 @@ static int cmd_q(char *args) {
   return -1;
 }
 
+static int cmd_info_regs(char *args){
+  isa_reg_display();
+  return 0;
+}
+
 static int cmd_help(char *args);
 
 static struct {
@@ -63,7 +68,7 @@ static struct {
 
   /* TODO: Add more commands */
   {"si","step N steps in the program ,N =1 by default.",cmd_si},
-
+  {"info r","print the status of registers",cmd_info_regs},
 };
 
 #define NR_CMD (sizeof(cmd_table) / sizeof(cmd_table[0]))
