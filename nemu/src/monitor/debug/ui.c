@@ -32,6 +32,19 @@ static int cmd_c(char *args) {
   return 0;
 }
 
+static int cmd_si(char *args){
+  // judge the args is int 
+  int i = 0;
+  uint64_t number = 1;
+  for (i = 0; args[i]; i++)
+  {
+    if(args[i] > '9' || args[i] < '0')  {printf("N must be a number.");return 1;}
+    if(i>100) {printf("recommand steps N less than 100.");return 1;}
+  }
+  number = atoi(args);
+  cpu_exec(number);
+  return 0;
+}
 
 static int cmd_q(char *args) {
   return -1;
@@ -49,7 +62,7 @@ static struct {
   { "q", "Exit NEMU", cmd_q },
 
   /* TODO: Add more commands */
-  {"si [N]","step N steps in the program ,N =1 by default."},
+  {"si [N]","step N steps in the program ,N =1 by default.",cmd_si},
 
 };
 
