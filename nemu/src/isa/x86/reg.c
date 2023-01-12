@@ -42,7 +42,9 @@ void reg_test() {
 }
 
 void isa_reg_display() {
+  printf("registers\thex\tdec\n");
   printf("eax\t 0x%x\t %d\t\n",cpu.gpr[1]._32,cpu.gpr[1]._32);
+
 }
 
 word_t isa_reg_str2val(const char *s, bool *success) {
