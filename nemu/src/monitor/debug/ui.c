@@ -39,7 +39,7 @@ static int cmd_si(char *args){
   for (i = 0; args[i]; i++)
   {
     if(args[i] > '9' || args[i] < '0')  {printf("N must be a number.");return 1;}
-    if(i>100) {printf("recommand steps N less than 100.");return 1;}
+    if(i==3) {printf("recommand steps N less than 100.");return 1;}
   }
   number = atoi(args);
   cpu_exec(number);
