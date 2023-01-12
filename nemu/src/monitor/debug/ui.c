@@ -50,7 +50,7 @@ static int cmd_q(char *args) {
   return -1;
 }
 
-static int cmd_info_regs(char *args){
+static int cmd_info_regs(){
   isa_reg_display();
   return 0;
 }
