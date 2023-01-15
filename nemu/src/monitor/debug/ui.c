@@ -8,7 +8,7 @@
 
 void cpu_exec(uint64_t);
 int is_batch_mode();
-
+static int cmd_q(char *args); 
 /* We use the `readline' library to provide more flexibility to read from stdin. */
 static char* rl_gets() {
   static char *line_read = NULL;
