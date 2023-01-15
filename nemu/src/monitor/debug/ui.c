@@ -31,18 +31,13 @@ static int cmd_c(char *args) {
   cpu_exec(-1);
   return 0;
 }
-#define DEFARG(name, defval) ((#name[0]) ? (name + 0) : defval)
 
 static int cmd_si(char *args){
+  uint64_t number;
+  char *arg = strtok(NULL," ");
   // judge the args is int 
-  int i = 0;
-  uint64_t number = 1;
-  for (i = 0; args[i]; i++)
-  {
-    if(args[i] > '9' || args[i] < '0')  {printf("N must be a number.");return 1;}
-    if(i==3) {printf("recommand steps N less than 100.");return 1;}
-  }
-  number = atoi(args);
+  number = atoi(arg);
+  if (arg == NULL || 0)  { number = 1;}
   cpu_exec(number);
   return 0;
 }
