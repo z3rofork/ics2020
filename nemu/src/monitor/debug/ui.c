@@ -42,6 +42,21 @@ static int cmd_si(char *args){
   return 0;
 }
 
+static int cmd_x(char *args){
+  uint8_t success = '1';
+  if(args == NULL) {printf("expecting more arguements.");return 1;} 
+  char *ssteps = strtok(NULL,"");
+  int isteps = atoi(ssteps);
+  if(isteps == 0){printf("steps must be setted.");return 1;}
+  char *address = strtok(NULL,"");
+  if(address == NULL) {printf("memory address must be setted.");return 1;}
+  for (int i = 0; i < isteps; i++)
+  {
+    /* code */
+    expr(address,&success);
+  }
+  return 0;  
+}
 
 static int cmd_q(char *args) {
   return -1;
@@ -66,6 +81,8 @@ static struct {
   /* TODO: Add more commands */
   {"si","step N steps in the program ,N =1 by default.",cmd_si},
   {"info","print the status of registers",cmd_info_regs},
+  {"x","print the hex value of memoery" , cmd_x},
+
 };
 
 #define NR_CMD (sizeof(cmd_table) / sizeof(cmd_table[0]))
