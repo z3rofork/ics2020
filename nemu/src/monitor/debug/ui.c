@@ -1,7 +1,7 @@
 #include <isa.h>
 #include "expr.h"
 #include "watchpoint.h"
-
+#include "cpu/exec.h"
 #include <stdlib.h>
 #include <readline/readline.h>
 #include <readline/history.h>
@@ -9,7 +9,6 @@
 void cpu_exec(uint64_t);
 int is_batch_mode();
 static int cmd_q(char *args);
-uint32_t instr_fetch(vaddr_t *, int);
 /* We use the `readline' library to provide more flexibility to read from stdin. */
 static char* rl_gets() {
   static char *line_read = NULL;
