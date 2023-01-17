@@ -9,7 +9,7 @@
 void cpu_exec(uint64_t);
 int is_batch_mode();
 static int cmd_q(char *args);
-uint32_t instr_fetch(vaddr_t *pc, int len);
+uint32_t instr_fetch(vaddr_t *, int);
 /* We use the `readline' library to provide more flexibility to read from stdin. */
 static char* rl_gets() {
   static char *line_read = NULL;
