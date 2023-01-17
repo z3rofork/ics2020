@@ -24,7 +24,7 @@ static struct rule {
   {" +", TK_NOTYPE},    // spaces
   {"\\+", '+'},         // plus
   {"==", TK_EQ},        // equal
-  {"^[A-Fa-f0-9]+$",TK_HEX}, //hex
+  {"^[0][x][0-9a-fA-F]+$",TK_HEX}, //hex
 };
 
 #define NR_REGEX (sizeof(rules) / sizeof(rules[0]) )
