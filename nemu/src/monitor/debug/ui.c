@@ -8,7 +8,8 @@
 
 void cpu_exec(uint64_t);
 int is_batch_mode();
-static int cmd_q(char *args); 
+static int cmd_q(char *args);
+uint32_t instr_fetch(vaddr_t *pc, int len);
 /* We use the `readline' library to provide more flexibility to read from stdin. */
 static char* rl_gets() {
   static char *line_read = NULL;
@@ -43,7 +44,7 @@ static int cmd_si(char *args){
 }
 
 static int cmd_x(char *args){
-  uint8_t success = '1';
+  bool success = true;
   if(args == NULL) {printf("expecting more arguements.");return 1;} 
   char *ssteps = strtok(NULL," ");
   int isteps = atoi(ssteps);
@@ -53,7 +54,10 @@ static int cmd_x(char *args){
   for (int i = 0; i < isteps; i++)
   {
     /* code */
-    expr(address,&success);
+    uint32_t valid_addr = expr(address,&success);
+    if (success==0)   {return 0;}
+    printf("0x%08x:\t",valid_addr);
+    printf("0x%08x\n",instr_fetch(&valid_addr,4));
   }
   return 0;  
 }
