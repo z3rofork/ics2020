@@ -62,7 +62,7 @@ static int cmd_x(char *args){
     /* code */
     printf("0x%08x\t",vaddr_read(address,4));
     address+=4;
-    if(i%4 == 0) {printf("\n");}
+    if((i+1)%4 == 0) {printf("\n");}
   }
   printf("\n");
   return 0;  
