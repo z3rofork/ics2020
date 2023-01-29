@@ -84,7 +84,6 @@ static bool make_token(char *e) {
             
           case TK_HEX:
             printf("found TK_HEX");
-            return true;
             break;
 
           default: TODO();
