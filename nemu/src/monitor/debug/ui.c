@@ -59,14 +59,13 @@ static int cmd_x(char *args){
   printf("0x%08x:\t ",address);
   int i = 0;
   while(steps){
-    if ((i+1) % 4 == 0){
+    if ((++i) % 4 == 0){
       printf("\n");
       printf("0x%08x:\t",address);
     }
     printf("0x%08x\t",vaddr_read(address,4));
     address+=4;
     steps--;
-    ++i;
   }
   printf("\n");
   return 0;  
