@@ -33,12 +33,13 @@ static int cmd_c(char *args) {
 }
 
 static int cmd_si(char *args){
-  uint64_t number;
+  int step = 0;
   char *arg = strtok(NULL," ");
   // judge the args is int 
-  number = atoi(arg);
-  if (arg == NULL || 0)  { number = 1;}
-  cpu_exec(number);
+  if (arg == NULL)  { cpu_exec(1); return 0;}
+  sscanf(arg,"%d",&step);
+  //if (step == -1)  { cpu_exec(-1); return 0;}
+  cpu_exec(step);
   return 0;
 }
 
