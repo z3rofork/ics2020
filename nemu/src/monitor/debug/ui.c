@@ -87,7 +87,7 @@ static struct {
 
   /* TODO: Add more commands */
   {"si","step N steps in the program ,N =1 by default.",cmd_si},
-  {"info r","print the status of registers",cmd_info_regs},
+  {"info","print the status of registers",cmd_info_regs},
   {"x","print the hex value of memoery" , cmd_x},
 
 };
