@@ -44,21 +44,12 @@ static int cmd_si(char *args){
 }
 
 static int cmd_x(char *args){
-  bool success = true;
   if(args == NULL) {printf("expecting more arguements.");return 1;} 
   char *ssteps = strtok(NULL," ");
   int isteps = atoi(ssteps);
   if(isteps == 0){printf("steps must be setted.\n");return 1;}
   char *address = strtok(NULL," ");
   if(address == NULL) {printf("memory address must be setted.\n");return 1;}
-  for (int i = 0; i < isteps; i++)
-  {
-    /* code */
-    uint32_t valid_addr = expr(address,&success);
-    if (success==0)   {return 0;}
-    printf("0x%08x:\t",valid_addr);
-    printf("0x%08x\n",instr_fetch(&valid_addr,4));
-  }
   return 0;  
 }
 
