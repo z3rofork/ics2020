@@ -65,6 +65,7 @@ static int cmd_x(char *args){
     }
     printf("0x%08x\t",vaddr_read(address,4));
     address+=4;
+    steps--;
   }
   printf("\n");
   return 0;  
