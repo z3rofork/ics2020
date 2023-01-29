@@ -50,6 +50,7 @@ void isa_reg_display() {
   printf("ebp\t 0x%08x\t %d\t\n",cpu.gpr[5]._32,cpu.gpr[5]._32);
   printf("esi\t 0x%08x\t %d\t\n",cpu.gpr[6]._32,cpu.gpr[6]._32);
   printf("edi\t 0x%08x\t %d\t\n",cpu.gpr[7]._32,cpu.gpr[7]._32);
+  printf("eip\t 0x%08x\t\n",cpu.pc);
 }
 
 word_t isa_reg_str2val(const char *s, bool *success) {
