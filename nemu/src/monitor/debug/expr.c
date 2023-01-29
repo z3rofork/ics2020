@@ -82,8 +82,9 @@ static bool make_token(char *e) {
 
         switch (rules[i].token_type) {
             
-          case 3:
-
+          case TK_HEX:
+            printf("found TK_HEX");
+            return true;
 
           default: TODO();
         }
