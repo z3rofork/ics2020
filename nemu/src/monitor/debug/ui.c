@@ -57,8 +57,8 @@ static int cmd_x(char *args){
   //expr(address,&success);
   //if (success==0)   {return 0;}
   printf("0x%08x:\t ",address);
+  int i = 0;
   while(steps){
-    int i = 0;
     if ((i+1) % 4 == 0){
       printf("\n");
       printf("0x%08x:\t",address);
