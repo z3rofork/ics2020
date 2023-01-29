@@ -44,16 +44,26 @@ static int cmd_si(char *args){
 }
 
 static int cmd_x(char *args){
-  bool success = true;
+  //bool success = true;
   if(args == NULL) {printf("expecting more arguements.");return 1;} 
-  char *ssteps = strtok(NULL," ");
-  int isteps = atoi(ssteps);
-  if(isteps == 0){printf("steps must be setted.\n");return 1;}
-  char *address = strtok(NULL," ");
-  if(address == NULL) {printf("memory address must be setted.\n");return 1;}
+  char *arg1 = strtok(NULL," ");
+  int steps = atoi(arg1);
+  if(steps == 0){printf("steps must be setted.\n");return 1;}
+  char *arg2 = strtok(NULL," ");
+  uint32_t address;
+  sscanf(arg2,"%x",&address);
+  if(address == '0') {printf("memory address must be setted.\n");return 1;}
     /* code */
-  expr(address,&success);
-  if (success==0)   {return 0;}
+  //expr(address,&success);
+  //if (success==0)   {return 0;}
+  printf("0x%08x:\t ",address);
+  for (int i = 0; i < steps; i++)
+  {
+    /* code */
+    printf("0x%08x:\t",vaddr_read(address,4));
+    address+=4;
+  }
+  printf("\n");
   return 0;  
 }
 
