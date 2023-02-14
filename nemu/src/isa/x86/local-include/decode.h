@@ -24,7 +24,7 @@ static inline void operand_imm(DecodeExecState *s, Operand *op, bool load_val, w
   if (load_val) {
     rtl_li(s, &op->val, imm);
     op->preg = &op->val;
-  }
+  }//
   print_Dop(op->str, OP_STR_SIZE, "$0x%x", imm);
 }
 
@@ -54,7 +54,9 @@ static inline def_DopHelper(SI) {
    *
    operand_imm(s, op, load_val, ???, op->width);
    */
-  TODO();
+  //TODO();
+   word_t imm = instr_fetch(&s->seq_pc,op->width);
+   operand_imm(s, op, load_val, imm, op->width);
 }
 
 /* I386 manual does not contain this abbreviation.
@@ -71,6 +73,7 @@ static inline def_DopHelper(a) {
  */
 static inline def_DopHelper(r) {
   operand_reg(s, op, load_val, s->opcode & 0x7, op->width);
+
 }
 
 /* I386 manual does not contain this abbreviation.
