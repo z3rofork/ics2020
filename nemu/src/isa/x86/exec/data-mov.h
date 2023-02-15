@@ -5,13 +5,13 @@ static inline def_EHelper(mov) {
 
 static inline def_EHelper(push) {
   //TODO();
-  operand_write(s, id_dest, dsrc1);
-  rtl_push(s,dsrc1);
+  rtl_push(s,id_dest->val);
   print_asm_template1(push);
 }
 
 static inline def_EHelper(pop) {
   TODO();
+  rtl_pop(s,id_dest->val);
   print_asm_template1(pop);
 }
 

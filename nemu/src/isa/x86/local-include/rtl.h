@@ -28,13 +28,16 @@ static inline def_rtl(push, const rtlreg_t* src1) {
   // esp <- esp - 4
   // M[esp] <- src1
   //TODO();
-  
+  rtl_subi(s,&cpu->esp,&cpu->esp,4);
+  rtl_sm(s,&cpu->esp,0,*src1,4);
 }
 
 static inline def_rtl(pop, rtlreg_t* dest) {
   // dest <- M[esp]
   // esp <- esp + 4
-  TODO();
+  //TODO();
+  rtl_lms(s,*dest,&cpu->esp,0,4);
+  rtl_addi(s,&cpu->esp,&cpu->esp,4);
 }
 
 static inline def_rtl(is_sub_overflow, rtlreg_t* dest,
