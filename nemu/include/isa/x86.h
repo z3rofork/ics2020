@@ -27,14 +27,14 @@ typedef struct {
     } gpr[8];
     struct {
       /* registers */
-      uint32_t eax;
-      uint32_t ecx;
-      uint32_t edx;
-      uint32_t ebx;
-      uint32_t esp;
-      uint32_t ebp;
-      uint32_t esi;
-      uint32_t edi;
+      rtlreg_t eax;
+      rtlreg_t ecx;
+      rtlreg_t edx;
+      rtlreg_t ebx;
+      rtlreg_t esp;
+      rtlreg_t ebp;
+      rtlreg_t esi;
+      rtlreg_t edi;
     }; 
   };/* Do NOT change the order of the GPRs' definitions. */
 
