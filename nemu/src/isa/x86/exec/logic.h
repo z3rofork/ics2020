@@ -22,6 +22,8 @@ static inline def_EHelper(xor) {
     assert(0);
   }
   operand_write(s,id_dest,ddest);
+  // update EFlags
+  rtl_update_ZF(s,&id_dest->val,id_dest->width);
   print_asm_template2(xor);
 }
 

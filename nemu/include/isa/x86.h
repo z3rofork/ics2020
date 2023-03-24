@@ -34,11 +34,33 @@ typedef struct {
       rtlreg_t esp;
       rtlreg_t ebp;
       rtlreg_t esi;
-      rtlreg_t edi;
-      unsigned int eflags;  
+      rtlreg_t edi;  
     };
-
-  };/* Do NOT change the order of the GPRs' definitions. */
+    struct{
+    uint32_t CF : 1;    // 进位标志位
+    uint32_t reserved1 : 1;
+    uint32_t PF : 1;    // 奇偶标志位
+    uint32_t reserved2 : 1;
+    uint32_t AF : 1;    // 辅助进位标志位
+    uint32_t reserved3 : 1;
+    uint32_t ZF : 1;    // 零标志位
+    uint32_t SF : 1;    // 符号标志位
+    uint32_t TF : 1;    // 跟踪标志位
+    uint32_t IF : 1;    // 中断标志位
+    uint32_t DF : 1;    // 方向标志位
+    uint32_t OF : 1;    // 溢出标志位
+    uint32_t IOPL : 2;  // I/O 特权级
+    uint32_t NT : 1;    // 扩展处理器状态标志位
+    uint32_t reserved4 : 1;
+    uint32_t RF : 1;    // 保留标志位
+    uint32_t VM : 1;    // 虚拟模式标志位
+    uint32_t AC : 1;    // 对准检查标志位
+    uint32_t VIF : 1;   // 虚拟中断标志位
+    uint32_t VIP : 1;   // 虚拟中断屏蔽标志位
+    uint32_t ID : 1;    // 检测处理器是否支持 CPUID 指令
+    };   
+  };
+  /* Do NOT change the order of the GPRs' definitions. */
 
   /* In NEMU, rtlreg_t is exactly uint32_t. This makes RTL instructions
    * in PA2 able to directly access these registers.
