@@ -11,7 +11,17 @@ static inline def_EHelper(and) {
 }
 
 static inline def_EHelper(xor) {
-  TODO();
+  //TODO();
+  Operand *dest = id_dest,*src1 = id_src1;
+  if(dest->type == OP_TYPE_REG){
+    dest->val ^= src1->val;
+  } else if (dest->type == OP_TYPE_MEM){
+    rtl_lm(s,s0,src1->preg,0,dest->width);
+    dest->val ^= *s0;
+  }else{
+    printf("Invalid operand type for XOR!\n");
+    assert(0);
+  }
   print_asm_template2(xor);
 }
 

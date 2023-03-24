@@ -35,7 +35,9 @@ typedef struct {
       rtlreg_t ebp;
       rtlreg_t esi;
       rtlreg_t edi;
-    }; 
+      unsigned int eflags;  
+    };
+
   };/* Do NOT change the order of the GPRs' definitions. */
 
   /* In NEMU, rtlreg_t is exactly uint32_t. This makes RTL instructions
