@@ -273,6 +273,10 @@ static inline def_DHelper(push_SI) {
   operand_reg(s,id_dest,true,R_ESP,4);
 }
 
+static inline def_DHelper(push_r){
+  operand_reg(s,id_src1,true,s->opcode & 0x7,4);
+}
+
 static inline def_DHelper(in_I2a) {
   id_src1->width = 1;
   decode_op_I(s, id_src1, true);
