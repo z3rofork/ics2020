@@ -21,6 +21,7 @@ static inline def_EHelper(xor) {
     printf("Invalid operand type for XOR!\n");
     assert(0);
   }
+  operand_write(s,id_dest,ddest);
   print_asm_template2(xor);
 }
 
